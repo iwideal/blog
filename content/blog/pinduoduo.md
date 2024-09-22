@@ -1,23 +1,36 @@
-# 一、登录拼多多后台，左侧导航栏，找到`订单查询` ，进入该页面。
-![](https://picgo.dalualex.cn/20240822141219.png)
+# 一小时搭建个人博客网站：cloudflare + taildwindcss + nuxt
 
-# 二、然后在订单页面，可以快速筛选我们需要计算利润的订单，比如`订单状态`选择全部，`售后状态`选择全部，`订单下单时间`选择最近30天内，然后点击**查询**按钮，再点击**批量导出**按钮。
-![](https://picgo.dalualex.cn/20240822141619.png)
+Cloudflare 是一个全球 CDN 服务提供商，提供 DNS 解析、HTTPS 安全加密、网站加速等服务。
+## 1. 注册 Cloudflare
 
-# 三、紧接着会跳出一个弹出框，选择对账报表>生成报表。
-![](https://picgo.dalualex.cn/20240822141743.png)
 
-# 四、然后我们点击下载报表。此时，我们已经成功从拼多多上将订单报表下载下来。
-![](https://picgo.dalualex.cn/20240822142012.png)
+## 2. 创建 Nuxt 项目
 
-# 五、然后，我们打开[利润分析大师](https://profitcalc.dalualex.com/)，点击 利润分析> 拼多多，将我们刚才下载好的文件上传上去。
-![](https://picgo.dalualex.cn/20240822142224.png)
-# 点击上传，然后选择我们刚才下载的报表文件。
-![](https://picgo.dalualex.cn/20240822144243.png)
+## 3. 创建 Tailwindcss
+    <template>
+    <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+        <li v-for="file in files" :key="file.source" class="relative">
+        <div class="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+            <img :src="file.source" alt="" class="pointer-events-none object-cover group-hover:opacity-75" />
+            <button type="button" class="absolute inset-0 focus:outline-none">
+            <span class="sr-only">View details for {{ file.title }}</span>
+            </button>
+        </div>
+        <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{{ file.title }}</p>
+        <p class="pointer-events-none block text-sm font-medium text-gray-500">{{ file.size }}</p>
+        </li>
+    </ul>
+    </template>
 
-# 然后等待上传完成，接着会显示下面的页面。
-![](https://picgo.dalualex.cn/20240822144743.png)
-# 六、接着，就可以看到所有的分析结果了。
-![](https://picgo.dalualex.cn/20240822145130.png)
-![](https://picgo.dalualex.cn/20240822145643.png)
-![](https://picgo.dalualex.cn/20240822150059.png)
+    <script setup>
+    const files = [
+    {
+        title: 'IMG_4985.HEIC',
+        size: '3.9 MB',
+        source:
+        'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+    },
+    // More files...
+    ]
+    </script>
+
