@@ -21,6 +21,6 @@
     "@cloudflare/workers-types": "^4.20240919.0",
     "h3": "^1.12.0",
     "nitro-cloudflare-dev": "^0.1.6",
-    "wrangler": "^3.78.7"
+    "wrangler": "^3.61.0"
   }
 }
