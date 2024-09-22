@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-white py-24 sm:py-32">
+    <div class="bg-white py-2">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <article v-for="post in posts" :key="post.id" class="flex flex-col items-start justify-between">
                     <NuxtLink :to="post.href">
                         <div class="relative w-full">

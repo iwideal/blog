@@ -1,6 +1,6 @@
 <template>
-    <div>
-        shouye
+    <div class="max-w-7xl mx-auto px-8">
+        <span>212121321</span>
     </div>
 </template>
 
@@ -8,6 +8,4 @@
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

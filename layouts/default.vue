@@ -71,8 +71,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 const navigation = [
     { name: '首页', href: '/' },
     { name: '博客', href: '/blog' },
-    { name: '关于我', href: '/about' },
-    { name: '联系我', href: '#' },
+    { name: '联系我', href: '/connect' },
 ]
 
 const mobileMenuOpen = ref(false)
