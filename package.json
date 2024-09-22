@@ -12,6 +12,10 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.1.5",
+    "@nuxt/content": "^2.13.2",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.13.0",
     "vue": "latest",
     "vue-router": "latest"
