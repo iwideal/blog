@@ -1,6 +1,11 @@
-{
-    "title": "使用Nuxt+Cloudflare一小时搭建个人博客系统",
-    "href": "/blog/cloudflare/nuxt-blog",
-    "imageUrl": "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    "date": "2023年3月24日"
-}
+[
+    {
+        "title": "使用 Cloudflare + Nuxt + Taildwindcss 搭建免费个人博客网站",
+        "href": "/blog/cloudflare/nuxt-blog",
+        "imageUrl": "https://picgo.dalualex.cn/Frame 6.png",
+        "date": "2023年3月24日",
+        "tags": [
+            "cloudflare教程"
+        ]
+    }
+]

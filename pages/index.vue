@@ -29,64 +29,14 @@
 </template>
 
 <script setup>
-
-const { data } = await useFetch('/api/getAllList')
-console.log(data.value);
-
-const posts = data.value.map(item =>{
-    return item.content
-})
-
-
-// const posts = [
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/cloudflare/nuxt-blog',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-//     {
-//         title: '使用Nuxt+Cloudflare一小时搭建个人博客系统',
-//         href: '/blog/一小时搭建个人博客/创建Nuxt项目',
-//         imageUrl:
-//             'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-//         date: 'Mar 16, 2020',
-//     },
-// ]
+// 使用 import.meta.glob 递归导入所有 JSON 文件  https://vitejs.dev/guide/features.html#glob-import
+const postsModule = import.meta.glob('@/content/blog/**/*.json');
+let posts = await Promise.all(
+    Object.entries(postsModule).map(async ([path, module]) => {
+        const data = await module();
+        return data.default
+    })
+);
+posts = posts.flat(); // 使用 flat() 将所有数组展平  
+console.log(posts);
 </script>
