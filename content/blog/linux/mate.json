@@ -5,9 +5,7 @@
         "href": "/blog/linux/command",
         "imageUrl": "https://picgo.dalualex.cn/20240925192816.png",
         "date": "2023年3月24日",
-        "tags": [
-            "Linux教程"
-        ]
+        "tag": "Linux合集"
     },
     {
         "id": "2",
@@ -15,8 +13,6 @@
         "href": "/blog/linux/apt-get",
         "imageUrl": "https://picgo.dalualex.cn/20240925194207.png",
         "date": "2023年3月24日",
-        "tags": [
-            "Linux教程"
-        ]
+        "tag": "Linux合集"
     }
 ]

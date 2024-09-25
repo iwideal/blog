@@ -13,7 +13,7 @@
                             <time class="text-gray-500">{{ post.date }}</time>
                             <a
                                 class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{
-                                    post.tags[0] }}</a>
+                                    post.tag }}</a>
                         </div>
                         <div class="group relative">
                             <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
