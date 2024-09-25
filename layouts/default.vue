@@ -21,8 +21,8 @@
                     class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</button>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                        aria-hidden="true">&rarr;</span></a>
+                <button @click="$router.push('/about')" class="text-sm font-semibold leading-6 text-gray-900">联系我 <span
+                        aria-hidden="true">&rarr;</span></button>
             </div>
         </nav>
         <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -70,8 +70,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
     { name: '首页', href: '/' },
-    { name: '博客', href: '/blog' },
-    { name: '联系我', href: '/connect' },
+    { name: '合集', href: '/collection' },
 ]
 
 const mobileMenuOpen = ref(false)
