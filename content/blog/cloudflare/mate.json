@@ -1,5 +1,6 @@
 [
     {
+        "id": "1",
         "title": "使用 Cloudflare + Nuxt + Taildwindcss 搭建免费个人博客网站",
         "href": "/blog/cloudflare/nuxt-blog",
         "imageUrl": "https://picgo.dalualex.cn/Frame 6.png",
