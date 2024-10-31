@@ -53,3 +53,14 @@ sudo apt install nginx
 
 sudo apt install docker.io
 ```
+
+# 升级nodejs和npm
+```bash
+sudo npm install n -g #首先下载 n 这个用于更新 node 版本的工具
+sudo n stable #升级nodejs
+sudo npm install npm@latest -g #升级npm
+
+# 查看版本
+node -v
+npm -v
+```
