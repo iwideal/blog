@@ -22,7 +22,8 @@ dalualex.com {
 ```
 重新启动caddy服务：
 ```shell
-caddy stop && caddy start
+sudo caddy stop 
+sudo caddy start
 ```
 ## 4. 创建Mysql数据库，配置Wordpress
 - 安装好mysql，创建数据库：dalualex
@@ -34,7 +35,6 @@ caddy stop && caddy start
  **require( ABSPATH . WPINC . ‘/option.php’ );**
 大概在第8行。
 在下方添加以下代码：
-
 ```php
 add_filter('script_loader_src', 'agnostic_script_loader_src', 20,2); function agnostic_script_loader_src($src, $handle) { return preg_replace('/^(http|https):/', '', $src); } 
 
