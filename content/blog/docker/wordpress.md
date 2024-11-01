@@ -22,17 +22,17 @@ dalualex.com {
 ```
 重新启动caddy服务：
 ```shell
-caddy reload
+caddy stop && caddy start
 ```
-## 4. 配置Mysql数据库
-安装好mysql，创建数据库：dalualex，访问http://dalualex.com/wp-admin 按照提示配
-置即可
+## 4. 创建Mysql数据库，配置Wordpress
+- 安装好mysql，创建数据库：dalualex
+- 访问http://localhost:9999/wp-admin/setup-config.php ，按照提示配置即可。
+>注意：数据库的ip地址为服务器的内网地址。
 
 ## 5. 解决Wordpress的URL问题（无样式表）
-1、进入docker映射的`/data`目录，打开`\wp-includes\functions.php`，找到代码
+1. 进入docker映射的`/data`目录，打开`\wp-includes\functions.php`，找到代码
  **require( ABSPATH . WPINC . ‘/option.php’ );**
- 大概在第8行。
-
+大概在第8行。
 在下方添加以下代码：
 
 ```php
@@ -40,7 +40,7 @@ add_filter('script_loader_src', 'agnostic_script_loader_src', 20,2); function ag
 
 add_filter('style_loader_src', 'agnostic_style_loader_src', 20,2); function agnostic_style_loader_src($src, $handle) { return preg_replace('/^(http|https):/', '', $src); }
 ```
-2、打开`\wp-config.php`文件找到代码
+2. 打开`\wp-config.php`文件找到代码
 ** 
 @package WordPress
 */
@@ -50,6 +50,6 @@ $_SERVER['HTTPS'] = 'on';
 define('FORCE_SSL_LOGIN', true);
 define('FORCE_SSL_ADMIN', true);
 ```
-3、完成以上两步操作后，可以正常访问wordpress https开头网站后台了，登录wordpress后台，点击[设置-常规-常规选项]，将WordPress地址(URL)、站点地址(URL)改为https://开头的链接地址(如https://dalualex.com)，后点击“保存更改”。
+3. 将WordPress地址(URL)、站点地址(URL)改为https://开头的链接地址(如https://dalualex.com)，后点击“保存更改”。
 ![](https://picgo.dalualex.cn/20241031153242.png)
 
