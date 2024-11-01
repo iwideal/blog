@@ -1,6 +1,5 @@
-# Linux常用包管理
+# Linux常用包管理命令
 
-![](https://picgo.dalualex.com/20240925194207.png)
 
 # 搭建ssh服务器
 
