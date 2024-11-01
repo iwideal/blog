@@ -5,6 +5,7 @@
 apt install nginx                   # 安装
 systemctl start nginx.service       # 启动
 systemctl reload nginx.service      # 重启
+systemctl enable nginx.service       #开机自启动
 
 # nginx配置文件
 目录：/etc/nginx/conf.d             #存放server块配置文件的目录，用于反向代理
