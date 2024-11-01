@@ -51,5 +51,5 @@ define('FORCE_SSL_LOGIN', true);
 define('FORCE_SSL_ADMIN', true);
 ```
 3. 将WordPress地址(URL)、站点地址(URL)改为https://开头的链接地址(如https://dalualex.com)，后点击“保存更改”。
-![](https://picgo.dalualex.cn/20241031153242.png)
+![](https://picgo.dalualex.com/20241031153242.png)
 

@@ -1,6 +1,6 @@
 # linux常用命令
 
-![](https://picgo.dalualex.cn/20240925192816.png)
+![](https://picgo.dalualex.com/20240925192816.png)
 
 # 文件管理
 

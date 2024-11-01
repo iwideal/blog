@@ -1,6 +1,6 @@
 # 使用 Cloudflare + Nuxt + Taildwindcss 搭建免费个人博客网站
 
-![](https://picgo.dalualex.cn/202409255544.png)
+![](https://picgo.dalualex.com/202409255544.png)
 
 Cloudflare 是一个全球 CDN 服务提供商，提供 DNS 解析、HTTPS 安全加密、网站加速等服务。
 ## 1. 注册 Cloudflare

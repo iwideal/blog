@@ -1,6 +1,6 @@
 # Linux常用包管理
 
-![](https://picgo.dalualex.cn/20240925194207.png)
+![](https://picgo.dalualex.com/20240925194207.png)
 
 # 搭建ssh服务器
 

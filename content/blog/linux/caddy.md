@@ -1,6 +1,6 @@
 # Caddy使用教程
 
-![](https://picgo.dalualex.cn/202409025153.png)
+![](https://picgo.dalualex.com/202409025153.png)
 
 Caddy是一个开源、跨平台的Web服务器，支持HTTP/2的TLS加密和自动HTTPS。它还支持反向代理、自动HTTPS、WebSocket、Websockets等功能。
 重要的是，Caddy自带了一个内置的HTTP/2服务器，支持自动TLS，Caddy可以自动申请并续期Let's Encrypt的证书。对于繁琐的TLS配置，Caddy可以自动完成所有操作。

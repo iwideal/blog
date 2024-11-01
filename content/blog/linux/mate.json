@@ -3,7 +3,7 @@
         "id": "1",
         "title": "Linux常用命令",
         "href": "/blog/linux/command",
-        "imageUrl": "https://picgo.dalualex.cn/20240925192816.png",
+        "imageUrl": "https://picgo.dalualex.com/20240925192816.png",
         "date": "2024年9月24日",
         "tag": "Linux合集"
     },
@@ -11,7 +11,7 @@
         "id": "2",
         "title": "Linux常用包管理",
         "href": "/blog/linux/apt-get",
-        "imageUrl": "https://picgo.dalualex.cn/20240925194207.png",
+        "imageUrl": "https://picgo.dalualex.com/20240925194207.png",
         "date": "2024年9月24日",
         "tag": "Linux合集"
     },
@@ -19,7 +19,7 @@
         "id": "3",
         "title": "Caddy使用教程",
         "href": "/blog/linux/caddy",
-        "imageUrl": "https://picgo.dalualex.cn/202409025153.png",
+        "imageUrl": "https://picgo.dalualex.com/202409025153.png",
         "date": "2024年9月24日",
         "tag": "Linux合集"
     }
