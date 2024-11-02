@@ -120,3 +120,19 @@ whereis                 nginx 查看软件配置文件位置
 | /etc/xinetd.d | 基于xinetd服务的启动脚本 |
 | /var/lib | 服务产生的数据存放位置 |
 | /var/log | 服务日志存放位置 |
+
+# 安装常用软件命令
+
+```bash
+sudo apt install git
+
+sudo apt install nodejs
+sudo apt install npm
+
+sudo apt install nginx
+
+sudo apt install docker.io
+
+sudo apt install openssh-server
+/etc/init.d/ssh restart #重启ssh服务器，设置密码
+```

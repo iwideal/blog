@@ -12,19 +12,22 @@ docker run -it --name mywordpress -p 9999:80 -v /data:/var/www/html -d wordpress
 ```
 
 ## 3. 使用caddy反向代理，并配置DNS解析
-编辑Caddyfile文件，添加如下内容：
-```shell
-dalualex.com {
-        reverse_proxy localhost:9999 {
-                header_up -Origin
-        }
-}
-```
-重新启动caddy服务：
-```shell
-sudo caddy stop 
-sudo caddy start
-```
+1. 编辑Caddyfile文件，添加如下内容：
+    ```shell
+    dalualex.com {
+            reverse_proxy localhost:9999 {
+                    header_up -Origin
+            }
+    }
+    ```
+2. 重新启动caddy服务：
+    ```shell
+    sudo caddy stop 
+    sudo caddy start
+    ```
+3. 配置DNS解析，将域名解析到服务器IP地址。
+
+
 ## 4. 创建Mysql数据库，配置Wordpress
 - 安装好mysql，创建数据库：dalualex
 - 访问http://localhost:9999/wp-admin/setup-config.php ，按照提示配置即可。
