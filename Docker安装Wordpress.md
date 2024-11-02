@@ -11,7 +11,7 @@ docker pull wordpress
 docker run -it --name mywordpress -p 9999:80 -v /data:/var/www/html -d wordpress
 ```
 
-## 3. 使用caddy反向代理
+## 3. 使用caddy反向代理，并配置DNS解析
 编辑Caddyfile文件，添加如下内容：
 ```shell
 dalualex.com {

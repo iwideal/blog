@@ -1,11 +1,11 @@
-# Nginx配置反向代理
+# Nginx使用教程
 
 ## 一、安装Nginx
 ```bash
 apt install nginx                   # 安装
 systemctl start nginx.service       # 启动
 systemctl reload nginx.service      # 重启
-systemctl enable nginx.service       #开机自启动
+systemctl enable nginx.service      #开机自启动
 
 # nginx配置文件
 目录：/etc/nginx/conf.d             #存放server块配置文件的目录，用于反向代理
@@ -39,16 +39,16 @@ systemctl reload nginx.service     # 重启
 
 ## 四、使用Cloudflare配置DNS
 ![](https://picgo.dalualex.com/20241101191639.png)
-1. A记录（Address Record）
+- A记录（Address Record）
 功能：将域名映射到一个IPv4地址。
 示例：example.com A 192.0.2.1
-2. AAAA记录
+- AAAA记录
 功能：将域名映射到一个IPv6地址。
 示例：example.com AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-3. CNAME记录（Canonical Name Record）
+- CNAME记录（Canonical Name Record）
 功能：将一个域名别名指向另一个域名。
 示例：www.example.com CNAME example.com
-> 开启代理后，Cloudflare会默认将DNS解析到Cloudflare的服务器上，自动添加SSL证书，不需要手动添加SSL证书
+> 代理状态设为开启，Cloudflare会默认将DNS解析到Cloudflare的服务器上，自动添加SSL证书，不需要手动添加SSL证书。
 
 此时，访问域名 https://dalualex.com 即可看到Nginx反向代理的页面。
 
