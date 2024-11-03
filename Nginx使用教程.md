@@ -18,13 +18,13 @@ systemctl enable nginx.service      #开机自启动
 创建default.conf文件，复制下面内容到文件。然后将default.conf文件复制到/etc/nginx/conf.d目录
 ```bash
 server {
-    listen 80;# 监听的端口
-    server_name dalualex.com;# 监听的域名
-
+    listen 80;                                 # 监听的端口
+    server_name dalualex.com;                  # 监听的域名，多个域名用空格隔开
     location / {
         proxy_pass http://localhost:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+        client_max_body_size 1024m;            # 文件上传大小限制
     }
 }
 
