@@ -8,7 +8,7 @@ docker pull wordpress
 
 ## 2. 创建容器
 ```shell
-docker run -it --name mywordpress -p 9999:80 -v /data:/var/www/html -d wordpress
+docker run -it --name mywordpress -p 9999:80 -v /home/ubuntu/mywordpress:/var/www/html -d wordpress
 ```
 
 ## 3. 使用caddy反向代理，并配置DNS解析
