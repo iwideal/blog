@@ -1,5 +1,7 @@
 # Wordpress常用插件
 
+- 谷歌分析
+  - **Site Kit by Google**
 - 邮件模板
   - **yaymail**
 - 多语言插件
@@ -28,3 +30,4 @@
    ```
    - 增强运费设置：**Flexible Shipping**
    - 增强折扣设置：**Discount Rules Core**
+   - 增强收藏夹功能：**YITH WooCommerce Wishlist**
