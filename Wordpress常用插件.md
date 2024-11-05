@@ -7,7 +7,7 @@
 - 网站搬家
   - **all in one migation**
 - 增强woocommerse功能的插件
-  - 代码运行**Code Snippets**
+  - 代码运行：**Code Snippets**
    ```php
     //隐藏Woocommerce商城中的加入购物车功能和实现隐藏价格标签的代码
 
@@ -26,5 +26,5 @@
         return ;
     }
    ```
-   - 增强运费设置**Flexible Shipping**
-   - 增强折扣设置**Discount Rules Core**
+   - 增强运费设置：**Flexible Shipping**
+   - 增强折扣设置：**Discount Rules Core**
