@@ -101,11 +101,86 @@ portainer.dalualex.com {
 
 # 五、生产环境配置
 在生产环境中，其配置与nginx类似，先将反向代理信息配置到配置文件中，然后启动服务，即可生效配置。
-> 生产环境切勿使用caddy命令方式（如：caddy start生效Caddyfile的配置）会造成各种奇怪的不稳定问题。
+> 生产环境切勿使用caddy命令方式（如：caddy start生效Caddyfile的配置），而是使用systemd管理caddy服务。
 
 - 编辑`/etc/caddy/Caddyfile`文件，配置caddy
 - 启动caddy：`sudo systemctl start caddy.service`
 - 如果修改了配置文件后，要重新启动caddy：`sudo systemctl reload caddy.service`
+
+在生产环境中，**不建议直接使用 `caddy start` 命令来运行 Caddy**。这种方式虽然简单，但缺乏对服务的有效管理，无法保证高可用性和稳定性。以下是原因及推荐的生产环境运行方式：
+
+---
+
+### 为什么不建议使用 `caddy start`？
+1. **缺乏服务管理**：
+   - `caddy start` 是以前台进程方式运行，终端关闭后服务会停止。
+   - 无法自动重启崩溃的服务。
+
+2. **日志管理不便**：
+   - 日志直接输出到终端，不方便集中管理和归档。
+
+3. **无法集成到系统服务**：
+   - 无法使用系统的服务管理工具（如 `systemd`）来监控和管理 Caddy。
+
+4. **不适合自动化运维**：
+   - 生产环境通常需要自动化部署和监控，`caddy start` 无法满足这些需求。
+
+---
+
+### 推荐的生产环境运行方式
+
+#### 1. 使用 `systemd` 管理 Caddy
+`systemd` 是 Linux 系统的服务管理工具，可以确保 Caddy 以守护进程方式运行，并支持自动重启、日志管理等功能。
+
+##### 步骤：
+1. **创建 `systemd` 服务文件**：
+   编辑 `/etc/systemd/system/caddy.service` 文件：
+   ```ini
+   [Unit]
+   Description=Caddy
+   Documentation=https://caddyserver.com/docs/
+   After=network.target
+
+   [Service]
+   User=caddy
+   Group=caddy
+   ExecStart=/usr/bin/caddy run --config /etc/caddy/Caddyfile
+   ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile
+   TimeoutStopSec=5s
+   LimitNOFILE=1048576
+   LimitNPROC=512
+   PrivateTmp=true
+   ProtectSystem=full
+   AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+2. **设置权限**：
+   ```bash
+   sudo chmod 644 /etc/systemd/system/caddy.service
+   ```
+
+3. **启动并启用服务**：
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl start caddy
+   sudo systemctl enable caddy
+   ```
+
+4. **检查状态**：
+   ```bash
+   sudo systemctl status caddy
+   ```
+
+5. **查看日志**：
+   ```bash
+   sudo journalctl -u caddy --no-pager | less
+   ```
+
+---
+
 # 六、常见错误
 
 - 使用caddy start启动caddy服务器，报错2019端口被占用
