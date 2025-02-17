@@ -61,19 +61,21 @@ wget -P /home/ubuntu [url]          将文件下载到/home/ubuntu目录(支持h
 
 服务本质就是进程，但是是运行在后台的，通常都会监听某个端口，等待其他程序的请求，如（mysql,sshd,防火墙等），因此我们有称为守护进程。
 
-服务的启动脚本，都是存放于`/etc/init.d`这个目录下面，这些脚本，基于都是使用 bash shell 编写的。需要启停服务，或者查看服务的运行状态，可以通过下面的方法来处理：
-
-- 启动服务：/etc/init.d/服务名 start
-- 停止服务：/etc/init.d/服务名 stop
-- 重启服务：/etc/init.d/服务名 restart
-- 查看服务状态：/etc/init.d/服务名 status
+服务目前基本都是使用systemd来管理，其脚本存放于`/lib/systemd/system`这个目录下面，这些脚本，基于都是使用 bash shell 编写的。需要启停服务，或者查看服务的运行状态，可以通过下面的方法来处理：
+![](https://picgo.dalualex.com/20250217181844.png)
 
 ```bash
-systemctl [start|stop|restart] [服务名]
+systemctl [start|stop|reload|status] [服务名]
 systemctl [enable|disable] [服务名]                     #开机打开/关闭自启动服务
 systemctl list-unit-files --type=service                #查看所有服务
 ```
-
+![](https://picgo.dalualex.com/Snipaste_2025-02-17_18-07-46.png)
+- `Loaded: loaded`：表示服务的文件已经加载
+- `/lib/systemd/system/caddy.service`：服务脚本存放位置
+- `enabled`：软件开机自启动
+- `vendor preset: enabled`：软件包由软件提供商提供
+- `Active: active (running)`：软件正在运行
+- `ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force`：软件启动时的命令，可以看到其配置文件为`/etc/caddy/Caddyfile`
 # 文档编辑
 
 ```bash

@@ -13,13 +13,17 @@ Caddy是一个开源、跨平台的Web服务器，支持HTTP/2的TLS加密和自
 
 2、上传到服务器，安装
 
-```jsx
+```bash
+#安装
 dpkg -i  caddy_2.7.6_linux_amd64.deb
+
+#卸载
+dpkg -r  caddy
 ```
 
 3、安装完成后，校验是否成功。
 
-```jsx
+```bash
 caddy version
 ```
 
@@ -94,7 +98,15 @@ portainer.dalualex.com {
 ```
 2、保存文件并在当前包含Caddyfile的目录下运行命令：
 `caddy start`；如果未停止caddy服务，则先运行`caddy stop`暂停caddy服务器。
-# 五、常见错误
+
+# 五、生产环境配置
+在生产环境中，其配置与nginx类似，先将反向代理信息配置到配置文件中，然后启动服务，即可生效配置。
+> 生产环境切勿使用caddy命令方式（如：caddy start生效Caddyfile的配置）会造成各种奇怪的不稳定问题。
+
+- 编辑`/etc/caddy/Caddyfile`文件，配置caddy
+- 启动caddy：`sudo systemctl start caddy.service`
+- 如果修改了配置文件后，要重新启动caddy：`sudo systemctl reload caddy.service`
+# 六、常见错误
 
 - 使用caddy start启动caddy服务器，报错2019端口被占用
     
