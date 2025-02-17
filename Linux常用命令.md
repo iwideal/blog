@@ -69,11 +69,9 @@ wget -P /home/ubuntu [url]          将文件下载到/home/ubuntu目录(支持h
 - 查看服务状态：/etc/init.d/服务名 status
 
 ```bash
-service 服务名 [start|stop|restart|reload|status]
-
-systemctl [start|stop|restart] 服务名
-systemctl enable [服务名]                               开机自启动服务
-systemctl list-unit-files --type=service                查看所有服务
+systemctl [start|stop|restart] [服务名]
+systemctl [enable|disable] [服务名]                     #开机打开/关闭自启动服务
+systemctl list-unit-files --type=service                #查看所有服务
 ```
 
 # 文档编辑
