@@ -61,14 +61,20 @@ wget -P /home/ubuntu [url]          将文件下载到/home/ubuntu目录(支持h
 
 服务本质就是进程，但是是运行在后台的，通常都会监听某个端口，等待其他程序的请求，如（mysql,sshd,防火墙等），因此我们有称为守护进程。
 
-服务目前基本都是使用systemd来管理，其脚本存放于`/lib/systemd/system`这个目录下面，这些脚本，基于都是使用 bash shell 编写的。需要启停服务，或者查看服务的运行状态，可以通过下面的方法来处理：
+服务目前基本都是使用systemd来管理，其脚本存放于`/lib/systemd/system`这个目录下面，这些脚本，基于都是使用 bash shell 编写的。
 ![](https://picgo.dalualex.com/20250217181844.png)
-
+需要启停服务，或者查看服务的运行状态，可以通过下面的方法来处理：
 ```bash
 systemctl [start|stop|reload|status] [服务名]
 systemctl [enable|disable] [服务名]                     #开机打开/关闭自启动服务
 systemctl list-unit-files --type=service                #查看所有服务
+
+#查看常用服务状态
+sudo systemctl status caddy.service
+sudo systemctl status nginx.service
+sudo systemctl status mysql.service
 ```
+查看服务状态信息：
 ![](https://picgo.dalualex.com/Snipaste_2025-02-17_18-07-46.png)
 - `Loaded: loaded`：表示服务的文件已经加载
 - `/lib/systemd/system/caddy.service`：服务脚本存放位置
