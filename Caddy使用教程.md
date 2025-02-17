@@ -114,3 +114,24 @@ portainer.dalualex.com {
     3、原因：
     
     在服务器启动时，caddy自启动，会监听2019端口，此时再使用`caddy start`  ，相当于又开启了一个caddy，就会报错端口被占用。所以，先将caddy停掉，然后再启动，启动时自动读取Caddyfile，来达到
+    
+- 安装完成caddy之后，无法启动caddy服务
+  1、现象
+  使用`systemctl status caddy.service`命令，查看caddy状态，显示faild，表示未启动caddy服务。
+  2、原因
+  caddy启动时，需要占用三个端口：80、443、2019。
+  - 80：http协议端口
+  - 443：https协议端口
+  - 2019：caddy运行端口
+  
+  如果之前安装了nginx，则会占用80和443端口，此时需要将nginx关闭，并且关闭80和443端口。
+  ```bash
+  #查看端口是否被占用
+  sudo netstat -tuln | grep -E '(:80|:443)'
+
+  # 解决方法
+  systemctl stop nginx
+  kill -9 80
+  kill -9 443
+  ```
+  此时再启动caddy服务：`systemctl start caddy.service`
