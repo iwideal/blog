@@ -1,9 +1,6 @@
+[TOC]
 # 一、布局
 ## 行内元素与块级元素的区别
-
-在 HTML 和 CSS 中，**行内元素（Inline Elements）**和**块级元素（Block-Level Elements）**是两种基本的元素类型，它们在默认行为和样式表现上有显著区别。以下是它们的核心区别和特点：
-
----
 
 ### 1. **默认布局行为**
 | 特性                | 行内元素 (Inline)                     | 块级元素 (Block)                      |
@@ -16,7 +13,7 @@
 ---
 
 ### 2. **常见示例**
-#### 行内元素
+行内元素
 ```html
 <span>这是一个行内元素</span>
 <a href="#">链接</a>
@@ -25,7 +22,7 @@
 ```
 - 默认不换行，适合包裹文本或小部分内容。
 
-#### 块级元素
+块级元素
 ```html
 <div>这是一个块级元素</div>
 <p>段落</p>
@@ -73,7 +70,7 @@
 
 ---
 
-### 总结表格
+### 6. **总结表格**
 | **特性**         | 行内元素                          | 块级元素                          | 行内块元素（`inline-block`）      |
 |------------------|----------------------------------|----------------------------------|----------------------------------|
 | **默认宽度**      | 内容宽度                         | 父容器宽度                       | 内容宽度                         |
@@ -106,7 +103,7 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
 ### 2. **如何模拟行内元素的效果**
 如果希望在 Flex 布局中让子元素**像行内元素一样排列**（不换行、宽度由内容决定），可以通过以下方式实现：
 
-#### 方法 1：使用 `flex` 属性控制子项宽度
+方法 1：使用 `flex` 属性控制子项宽度
 ```css
 .flex-container {
   display: flex;
@@ -124,7 +121,7 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
   - `flex-shrink: 1`：允许收缩。
   - `flex-basis: auto`：宽度由内容决定。
 
-#### 方法 2：强制子项为 `inline` 或 `inline-block`
+方法 2：强制子项为 `inline` 或 `inline-block`
 虽然 Flex 子项的 `display` 属性会被忽略，但可以通过其他方式模拟行内元素的行为：
 ```css
 .flex-item {
@@ -146,28 +143,73 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
 
 ---
 
-### 4. **示例对比**
-#### 传统行内元素
-```html
-<div style="background: lightgray;">
-  <span style="background: yellow; padding: 10px;">行内元素</span>
-  <span style="background: orange; margin: 20px 0;">垂直边距无效</span>
-</div>
-```
-- 垂直方向的 `margin` 不占空间。
-
-#### Flex 子项
-```html
-<div style="display: flex; background: lightgray;">
-  <div style="background: yellow; padding: 10px;">Flex 子项</div>
-  <div style="background: orange; margin: 20px 0;">垂直边距生效</div>
-</div>
-```
-- 垂直方向的 `margin` 和 `padding` 完全生效。
-
----
-
-### 5. **总结**
+### 4. **总结**
 - **Flex 布局中，子元素不再是块级或行内元素**，而是 Flex 子项，其行为由 Flex 容器控制。
 - 如果需要子元素**像行内元素一样不换行且宽度自适应内容**，可以通过 `flex: 0 1 auto` 或 `width: fit-content` 实现。
 - Flex 子项的优势是**可以自由控制对齐、间距、伸缩比例**，而传统行内元素无法做到。
+---
+
+## Taildwind CSS的Flex布局
+### 1、对齐方向
+- flex-row：水平排列
+- flex-col：垂直排列
+### 2、对齐方式
+- justify-start：左对齐
+- justify-end：右对齐
+- justify-center：居中对齐
+- justify-between：两端对齐
+- justify-around：平均分布
+- justify-evenly：平均分布，两端不留空隙 
+<br>
+- items-start：顶部对齐
+- items-end：底部对齐
+- items-center：居中对齐
+- items-baseline：基线对齐
+- items-stretch：拉伸对齐
+### 3、伸缩比例（适用于flex子项）
+- flex-1：允许弹性项目根据需要增大和缩小，忽略其初始大小
+- flex-auto：允许弹性项目增长和收缩，同时考虑到它的初始大小
+<br>
+- shrink：允许缩小
+- shrink-0：不允许缩小
+<br>
+- flex-none： 防止弹性项目增长或收缩
+### 4、换行
+- flex-nowrap：不换行
+- flex-wrap：换行
+### 5、间隙
+- gap-2：设置子项之间的间隙
+- gap-x-2：设置水平方向的间隙
+- gap-y-2：设置垂直方向的间隙
+
+---
+## Taildwind CSS的Grid布局
+### 1、定义列数和行数
+- 列数：grid-cols-{n}
+例如：grid-cols-3 表示 3 列。
+- 行数：grid-rows-{n}
+例如：grid-rows-2 表示 2 行。
+### 2、子项定位与跨度
+- col-start-{n}：设置子项起始列
+- col-end-{n}：设置子项结束列
+- row-start-{n}：设置子项起始行
+- row-end-{n}：设置子项结束行
+<br>
+- col-span-{n}：设置子项跨列数
+- row-span-{n}：设置子项跨行数
+### 3、对齐方式
+#### 容器内对齐 
+| 对齐方式         | 工具类                     | 作用                          |  
+|------------------|---------------------------|-------------------------------|  
+| **水平对齐**     | `justify-items-{value}`   | 控制所有子项的水平对齐（`start`/`end`/`center`/`stretch`） |  
+| **垂直对齐**     | `items-{value}`           | 控制所有子项的垂直对齐（`start`/`end`/`center`/`stretch`） |  
+| **整体对齐**     | `place-items-{value}`     | 同时设置水平和垂直对齐（`start`/`end`/`center`/`stretch`） |  
+#### 单个子项对齐
+| 对齐方式         | 工具类                     |  
+|------------------|---------------------------|  
+| **水平对齐**     | `justify-self-{value}`    |  
+| **垂直对齐**     | `self-{value}`           |  
+
+
+
+
