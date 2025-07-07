@@ -160,8 +160,8 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
 - justify-between：两端对齐
 - justify-around：平均分布
 - justify-evenly：平均分布，两端不留空隙 
-<br>
 - items-start：顶部对齐
+- 
 - items-end：底部对齐
 - items-center：居中对齐
 - items-baseline：基线对齐
@@ -169,10 +169,10 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
 ### 3、伸缩比例（适用于flex子项）
 - flex-1：允许弹性项目根据需要增大和缩小，忽略其初始大小
 - flex-auto：允许弹性项目增长和收缩，同时考虑到它的初始大小
-<br>
+- 
 - shrink：允许缩小
 - shrink-0：不允许缩小
-<br>
+- 
 - flex-none： 防止弹性项目增长或收缩
 ### 4、换行
 - flex-nowrap：不换行
@@ -194,17 +194,19 @@ Flex 布局（Flexible Box Layout）是 CSS3 引入的一种布局模式，旨�
 - col-end-{n}：设置子项结束列
 - row-start-{n}：设置子项起始行
 - row-end-{n}：设置子项结束行
-<br>
+- 
 - col-span-{n}：设置子项跨列数
 - row-span-{n}：设置子项跨行数
 ### 3、对齐方式
 #### 容器内对齐 
+
 | 对齐方式         | 工具类                     | 作用                          |  
 |------------------|---------------------------|-------------------------------|  
 | **水平对齐**     | `justify-items-{value}`   | 控制所有子项的水平对齐（`start`/`end`/`center`/`stretch`） |  
 | **垂直对齐**     | `items-{value}`           | 控制所有子项的垂直对齐（`start`/`end`/`center`/`stretch`） |  
 | **整体对齐**     | `place-items-{value}`     | 同时设置水平和垂直对齐（`start`/`end`/`center`/`stretch`） |  
 #### 单个子项对齐
+
 | 对齐方式         | 工具类                     |  
 |------------------|---------------------------|  
 | **水平对齐**     | `justify-self-{value}`    |  
