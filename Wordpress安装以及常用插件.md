@@ -1,17 +1,17 @@
 # Wordpress安装以及常用插件
 
 ### 一、Docker安装Wordpress
-1、安装wordpress
+1. 安装wordpress
 ```bash
 sudo docker run -it --name dalualex -p 9999:80 -v /home/ubuntu/dalualex:/var/www/html -d wordpress
 ```
-2、域名解析和反向代理配置
-3、创建mysql数据库
-4、网站初始化设置
+2. 域名解析和反向代理配置
+3. 创建mysql数据库
+4. 网站初始化设置
 打开网址：http://dalualex.com/wp-admin/install.php ,按照提示完成网站初始化设置。
-3、修改wp-config.php
-初始化设置后，网站会没有样式，需要进行一下设置：
-- 安装插件Really Simple Security
+5. 修改wp-config.php
+初始化设置后，网站会没有样式，因为没有配置SSL，需要进行一下设置：
+- 安装插件Really Simple Security；
 - 修改wp-config.php文件，添加以下代码：
     ```php
     //Begin Really Simple Security Server variable fix
